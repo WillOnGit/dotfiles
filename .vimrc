@@ -18,9 +18,7 @@ execute pathogen#infect()
 " Allow hidden buffers
 set hidden
 
-" Set colorscheme
-"colorscheme kaltex
-"set lines=24 columns=80
+" Set options
 set autoread
 set number
 set hlsearch
@@ -30,15 +28,17 @@ set smartcase
 set autoindent
 set smartindent
 set visualbell
+
+" Key remappings
 nnoremap <BS> :noh<CR>
 " let mapleader = <Space>
 " nnoremap <Leader>d dd
 
-" custom functions
-" LatexQuotes breaks in case with multiple good quotes on same line
+" Custom functions
 function LatexQuotes()
-	%s/''\(.\{-}\)''/``\1''/g
+	%s/''\([^`]\{-}\)''/``\1''/ceg
 endfunction
+" only accounts for pairs of double quotes, ''like these''
 
 function StripTrailingWhitespace()
 	%s/\s*$//
