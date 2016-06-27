@@ -15,10 +15,11 @@ syntax enable
 " Use tpope's pathogen plugin manager
 execute pathogen#infect()
 
-" Allow hidden buffers
-set hidden
+" Set default encoding
+set encoding=utf-8
 
-" Set options
+" Set misc behavioural options
+set hidden
 set autoread
 set number
 set hlsearch
