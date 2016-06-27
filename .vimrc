@@ -19,6 +19,8 @@ execute pathogen#infect()
 set encoding=utf-8
 
 " Set misc behavioural options
+set statusline=%f%=%l/%L
+set laststatus=2
 set hidden
 set autoread
 set number
