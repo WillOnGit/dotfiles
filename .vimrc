@@ -32,16 +32,25 @@ set autoindent
 set smartindent
 set visualbell
 
+" Leader key
+let mapleader = "\<Space>"
+
 " Key remappings
 nnoremap <BS> :noh<CR>
-" let mapleader = <Space>
-" nnoremap <Leader>d dd
+noremap <Leader>y "*y
+
+" easy-align plugin
+xmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+let g:easy_align_delimiters = {
+\ 'd': { 'pattern': '\-' }
+\ }
 
 " Custom functions
 function LatexQuotes()
 	%s/''\([^`]\{-}\)''/``\1''/ceg
 endfunction
-" only accounts for pairs of double quotes, ''like these''
+" only accounts for pairs of ''double'' quotes not 'single' quotes
 
 function StripTrailingWhitespace()
 	%s/\s*$//
