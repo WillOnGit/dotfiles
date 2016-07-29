@@ -38,6 +38,8 @@ let mapleader = "\<Space>"
 " Key remappings
 nnoremap <BS> :noh<CR>
 noremap <Leader>y "*y
+noremap <Leader>C "_yiwgUl
+noremap <Leader>c "_yiwgul
 
 " easy-align plugin
 xmap <Leader>a <Plug>(EasyAlign)
