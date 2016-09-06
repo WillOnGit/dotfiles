@@ -41,6 +41,7 @@ noremap <Leader>y "*y
 noremap <Leader>C "_yiwgUl
 noremap <Leader>c "_yiwgul
 noremap <Leader>h :help<Space>
+noremap Y y$
 
 " easy-align plugin
 xmap <Leader>a <Plug>(EasyAlign)
