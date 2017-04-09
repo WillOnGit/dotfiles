@@ -31,17 +31,27 @@ set smartcase
 set autoindent
 set smartindent
 set visualbell
+set backspace=indent,eol,start
+set nowrap
+set mouse=
 
 " Leader key
 let mapleader = "\<Space>"
 
-" Key remappings
+" Key mappings
 nnoremap <BS> :noh<CR>
 noremap <Leader>y "*y
-noremap <Leader>C "_yiwgUl
-noremap <Leader>c "_yiwgul
+noremap <Leader>Y "*Y
+noremap <Leader>p "*p
+noremap <Leader>P "*P
+noremap <Leader>n :bn<CR>
+noremap <Leader>N :bp<CR>
+noremap <Leader>U "_yiwgUl
+noremap <Leader>u "_yiwgul
 noremap <Leader>h :help<Space>
+noremap <Leader>g :g/^/
 noremap Y y$
+nnoremap <Leader>c :s///gn
 
 " easy-align plugin
 xmap <Leader>a <Plug>(EasyAlign)
@@ -57,5 +67,16 @@ endfunction
 " only accounts for pairs of ''double'' quotes not 'single' quotes
 
 function StripTrailingWhitespace()
-	%s/\s*$//
+	%s/\s\+$//
 endfunction
+
+function ClearBlankLines()
+              g/^\s*$/d
+endfunction
+
+function CollapseSpaces()
+              %s/ \+/ /g
+endfunction
+
+" Windows font
+set guifont=Menlo:h10
