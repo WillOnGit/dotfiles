@@ -51,7 +51,8 @@ noremap <Leader>u "_yiwgul
 noremap <Leader>h :help<Space>
 noremap <Leader>g :g/^/
 noremap Y y$
-nnoremap <Leader>c :s///gn
+nnoremap <Leader>c :s///gn<Left><Left><Left><Left>
+nnoremap :: :<Up><CR>
 
 " easy-align plugin
 xmap <Leader>a <Plug>(EasyAlign)
@@ -79,4 +80,4 @@ function CollapseSpaces()
 endfunction
 
 " Windows font
-set guifont=Menlo:h10
+" set guifont=Menlo:h10
