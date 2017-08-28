@@ -42,15 +42,15 @@ let mapleader = "\<Space>"
 nnoremap <BS> :noh<CR>
 noremap <Leader>y "*y
 noremap <Leader>Y "*Y
-noremap <Leader>p "*p
-noremap <Leader>P "*P
-noremap <Leader>n :bn<CR>
-noremap <Leader>N :bp<CR>
-noremap <Leader>U "_yiwgUl
-noremap <Leader>u "_yiwgul
-noremap <Leader>h :help<Space>
-noremap <Leader>g :g/^/
-noremap Y y$
+nnoremap <Leader>p "*p
+nnoremap <Leader>P "*P
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>N :bp<CR>
+nnoremap <Leader>U "_yiwgUl
+nnoremap <Leader>u "_yiwgul
+nnoremap <Leader>h :help<Space>
+nnoremap <Leader>g :g/^/
+nnoremap Y y$
 nnoremap <Leader>c :s///gn<Left><Left><Left><Left>
 nnoremap :: :<Up><CR>
 
@@ -73,6 +73,10 @@ endfunction
 
 function ClearBlankLines()
               g/^\s*$/d
+endfunction
+
+function ClearInitialWhitespace()
+              %s/^\s*//
 endfunction
 
 function CollapseSpaces()
