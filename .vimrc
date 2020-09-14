@@ -34,6 +34,8 @@ set visualbell
 set backspace=indent,eol,start
 set nowrap
 set mouse=
+set tabstop=4
+set shiftwidth=4
 
 " Leader key
 let mapleader = "\<Space>"
@@ -53,6 +55,7 @@ nnoremap <Leader>g :g/^/
 nnoremap Y y$
 nnoremap <Leader>c :s///gn<Left><Left><Left><Left>
 nnoremap :: :<Up><CR>
+nnoremap <Leader>v :e<Space>~/.vimrc<CR>
 
 " easy-align plugin
 xmap <Leader>a <Plug>(EasyAlign)
@@ -85,3 +88,7 @@ endfunction
 
 " Windows font
 " set guifont=Menlo:h10
+"
+" probably ought to tidy this up
+" YAML indentation fix
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
