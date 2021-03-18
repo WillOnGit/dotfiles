@@ -13,13 +13,13 @@ filetype indent plugin on
 syntax enable
 
 " Use tpope's pathogen plugin manager
-execute pathogen#infect()
+" execute pathogen#infect()
 
 " Set default encoding
 set encoding=utf-8
 
 " Set misc behavioural options
-set statusline=%f%=%l/%L
+set statusline=%n\ %f\ %m%=%l/%L
 set laststatus=2
 set hidden
 set autoread
@@ -36,6 +36,7 @@ set nowrap
 set mouse=
 set tabstop=4
 set shiftwidth=4
+set diffopt=internal,filler,vertical
 
 " Leader key
 let mapleader = "\<Space>"
@@ -86,9 +87,8 @@ function CollapseSpaces()
               %s/ \+/ /g
 endfunction
 
-" Windows font
-" set guifont=Menlo:h10
-"
 " probably ought to tidy this up
 " YAML indentation fix
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
+" typescript
+autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 expandtab ft=javascriptreact
