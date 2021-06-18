@@ -53,6 +53,7 @@ nnoremap <Leader>U "_yiwgUl
 nnoremap <Leader>u "_yiwgul
 nnoremap <Leader>h :help<Space>
 nnoremap <Leader>g :g/^/
+nnoremap <Leader>x :bn<CR>:bd#<CR>
 nnoremap Y y$
 nnoremap <Leader>c :s///gn<Left><Left><Left><Left>
 nnoremap :: :<Up><CR>
