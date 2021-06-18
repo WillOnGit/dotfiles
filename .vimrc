@@ -58,6 +58,7 @@ nnoremap Y y$
 nnoremap <Leader>c :s///gn<Left><Left><Left><Left>
 nnoremap :: :<Up><CR>
 nnoremap <Leader>v :e<Space>~/.vimrc<CR>
+nnoremap <Leader>l :ls<CR>
 
 " easy-align plugin
 xmap <Leader>a <Plug>(EasyAlign)
