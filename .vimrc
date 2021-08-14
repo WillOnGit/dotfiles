@@ -36,7 +36,8 @@ set nowrap
 set mouse=
 set tabstop=4
 set shiftwidth=4
-set diffopt=internal,filler,vertical
+set diffopt=filler,vertical
+set cursorline
 
 " Leader key
 let mapleader = "\<Space>"
@@ -59,6 +60,9 @@ nnoremap <Leader>c :s///gn<Left><Left><Left><Left>
 nnoremap :: :<Up><CR>
 nnoremap <Leader>v :e<Space>~/.vimrc<CR>
 nnoremap <Leader>l :ls<CR>
+" Force n and N to search forwards and backwards
+"nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
+"nnoremap <expr> N 'nN'[v:searchforward] . "zv"
 
 " easy-align plugin
 xmap <Leader>a <Plug>(EasyAlign)
