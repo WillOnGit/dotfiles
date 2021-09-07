@@ -38,6 +38,7 @@ set tabstop=4
 set shiftwidth=4
 set diffopt=filler,vertical
 set cursorline
+set expandtab
 
 " Leader key
 let mapleader = "\<Space>"
@@ -95,6 +96,6 @@ endfunction
 
 " probably ought to tidy this up
 " YAML indentation fix
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>
 " typescript
-autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 expandtab ft=javascriptreact
+autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 ft=javascriptreact
