@@ -1,5 +1,10 @@
 [user]
-	name = Will
-	email = git@bolton.me.uk
+	name = Will Bolton
+	email = wilbol@ceh.ac.uk
+[core]
+	editor = vim
+	excludesFile = ~/.git-excludesFile
+[pull]
+	ff = true
 [init]
 	defaultBranch = main
