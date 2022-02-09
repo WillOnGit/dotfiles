@@ -39,6 +39,7 @@ set shiftwidth=4
 set diffopt=filler,vertical
 set cursorline
 set expandtab
+set splitright
 
 " Leader key
 let mapleader = "\<Space>"
@@ -99,3 +100,6 @@ endfunction
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>
 " typescript
 autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 ft=javascriptreact
+" set 'prose' files to wrap
+autocmd FileType markdown setlocal wrap
+autocmd FileType text setlocal wrap
