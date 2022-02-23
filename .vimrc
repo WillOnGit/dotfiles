@@ -62,6 +62,8 @@ nnoremap <Leader>c :s///gn<Left><Left><Left><Left>
 nnoremap :: :<Up><CR>
 nnoremap <Leader>v :e<Space>~/.vimrc<CR>
 nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>d :windo :difft<CR>
+nnoremap <Leader>D :windo :diffoff<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
 "nnoremap <expr> N 'nN'[v:searchforward] . "zv"
