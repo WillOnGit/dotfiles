@@ -40,6 +40,7 @@ set diffopt=filler,vertical
 set cursorline
 set expandtab
 set splitright
+set sidescroll=1
 
 " Leader key
 let mapleader = "\<Space>"
