@@ -38,16 +38,18 @@ set tabstop=4
 set shiftwidth=4
 set diffopt=filler,vertical
 set cursorline
+set splitright
+set sidescroll=1
 
 " Leader key
 let mapleader = "\<Space>"
 
 " Key mappings
 nnoremap <BS> :noh<CR>
-noremap <Leader>y "*y
-noremap <Leader>Y "*Y
-nnoremap <Leader>p "*p
-nnoremap <Leader>P "*P
+"noremap <Leader>y "*y
+"noremap <Leader>Y "*Y
+nnoremap <Leader>p :r!xclip -o -selection Clipboard<CR>
+"nnoremap <Leader>P "*P
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>N :bp<CR>
 nnoremap <Leader>U "_yiwgUl
@@ -61,6 +63,8 @@ nnoremap <Leader>C :%s///gn<Left><Left><Left><Left>
 nnoremap :: :<Up><CR>
 nnoremap <Leader>v :e<Space>~/.vimrc<CR>
 nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>d :windo :difft<CR>
+nnoremap <Leader>D :windo :diffoff<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
 "nnoremap <expr> N 'nN'[v:searchforward] . "zv"
@@ -100,3 +104,6 @@ endfunction
 "autocmd FileType yaml setlocal ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>
 " typescript
 "autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 ft=javascriptreact
+" set 'prose' files to wrap
+autocmd FileType markdown setlocal wrap
+autocmd FileType text setlocal wrap

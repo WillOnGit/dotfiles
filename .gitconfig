@@ -8,3 +8,5 @@
 	ff = true
 [init]
 	defaultBranch = main
+[alias]
+	fl = log --oneline --graph --branches
