@@ -10,3 +10,6 @@
 	defaultBranch = main
 [alias]
 	fl = log --oneline --graph --branches
+	cv = commit --verbose
+	mc = log --branches --author=wilbol*
+	s = status
