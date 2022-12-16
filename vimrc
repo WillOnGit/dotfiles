@@ -64,6 +64,7 @@ nnoremap <Leader>v :e<Space>~/.vimrc<CR>
 nnoremap <Leader>l :ls<CR>
 nnoremap <Leader>d :windo :difft<CR>
 nnoremap <Leader>D :windo :diffoff<CR>
+nnoremap <Leader>q :call QuickCC()<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
 "nnoremap <expr> N 'nN'[v:searchforward] . "zv"
@@ -95,6 +96,16 @@ endfunction
 
 function CollapseSpaces()
               %s/ \+/ /g
+endfunction
+
+function QuickCC()
+	let now_cc = &cc
+	let current_col = virtcol(".")
+	if now_cc != current_col
+		let &cc = current_col
+	else
+		let &cc = ""
+	endif
 endfunction
 
 " probably ought to tidy this up
