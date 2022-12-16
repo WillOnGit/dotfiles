@@ -38,7 +38,6 @@ set tabstop=4
 set shiftwidth=4
 set diffopt=filler,vertical
 set cursorline
-set expandtab
 set splitright
 set sidescroll=1
 
