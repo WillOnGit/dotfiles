@@ -4,8 +4,11 @@
 [core]
 	editor = vim
 	excludesFile = ~/.git-excludesFile
+	pager = less -F
 [pull]
 	ff = true
+[push]
+	autoSetupRemote = true
 [init]
 	defaultBranch = main
 [alias]

@@ -65,6 +65,7 @@ nnoremap <Leader>v :e<Space>~/.vimrc<CR>
 nnoremap <Leader>l :ls<CR>
 nnoremap <Leader>d :windo :difft<CR>
 nnoremap <Leader>D :windo :diffoff<CR>
+nnoremap <Leader>q :call QuickCC()<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
 "nnoremap <expr> N 'nN'[v:searchforward] . "zv"
@@ -98,7 +99,16 @@ function CollapseSpaces()
               %s/ \+/ /g
 endfunction
 
-" check these on mac version
+function QuickCC()
+	let now_cc = &cc
+	let current_col = virtcol(".")
+	if now_cc != current_col
+		let &cc = current_col
+	else
+		let &cc = ""
+	endif
+endfunction
+
 " probably ought to tidy this up
 " YAML indentation fix
 "autocmd FileType yaml setlocal ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>
