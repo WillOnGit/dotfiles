@@ -46,10 +46,10 @@ let mapleader = "\<Space>"
 
 " Key mappings
 nnoremap <BS> :noh<CR>
-"noremap <Leader>y "*y
-"noremap <Leader>Y "*Y
-nnoremap <Leader>p :r!xclip -o -selection Clipboard<CR>
-"nnoremap <Leader>P "*P
+noremap <Leader>y "+y
+noremap <Leader>Y "+Y
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>N :bp<CR>
 nnoremap <Leader>U "_yiwgUl
