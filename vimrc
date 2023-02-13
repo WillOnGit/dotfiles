@@ -40,6 +40,7 @@ set diffopt=filler,vertical
 set cursorline
 set splitright
 set sidescroll=1
+set wildignorecase
 
 " Leader key
 let mapleader = "\<Space>"
