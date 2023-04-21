@@ -7,10 +7,11 @@ export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 # setup aliases
 alias py='python'
 alias kc='kubectl'
+alias grep='grep --binary-files=without-match'
+alias yf='xclip -r -selection Clipboard'
 
 # autocompletion
 . /usr/share/bash-completion/completions/docker
-. /usr/share/bash-completion/completions/docker-compose
 . /usr/share/bash-completion/completions/eselect
 . /usr/share/bash-completion/completions/git
 . /usr/share/bash-completion/completions/pass
