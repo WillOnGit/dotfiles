@@ -2,23 +2,12 @@
 " as well as custom entries as required
 " URL: http://vim.wikia.com/wiki/Example_vimrc
 " URL: https://github.com/tpope/vim-sensible/blob/master/plugin/sensible.vim
-"
-" Disable vi compatibility for more features?
+
+" settings
 set nocompatible
-
-" Enable filetype detection and loading indentation and plugins
 filetype indent plugin on
-
-" Enable syntax highlighting
 syntax enable
-
-" Use tpope's pathogen plugin manager
-" execute pathogen#infect()
-
-" Set default encoding
 set encoding=utf-8
-
-" Set misc behavioural options
 set statusline=%n\ %f\ %m%=%l/%L
 set laststatus=2
 set hidden
@@ -49,8 +38,8 @@ let mapleader = "\<Space>"
 nnoremap <BS> :noh<CR>
 noremap <Leader>y "+y
 noremap <Leader>Y "+Y
-nnoremap <Leader>p "+p
-nnoremap <Leader>P "+P
+noremap <Leader>p "+p
+noremap <Leader>P "+P
 nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>N :bp<CR>
 nnoremap <Leader>U "_yiwgUl
@@ -67,16 +56,10 @@ nnoremap <Leader>l :ls<CR>
 nnoremap <Leader>d :windo :difft<CR>
 nnoremap <Leader>D :windo :diffoff<CR>
 nnoremap <Leader>q :call QuickCC()<CR>
+nnoremap <Leader>j :%!jq .<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
 "nnoremap <expr> N 'nN'[v:searchforward] . "zv"
-
-" easy-align plugin
-xmap <Leader>a <Plug>(EasyAlign)
-nmap <Leader>a <Plug>(EasyAlign)
-let g:easy_align_delimiters = {
-\ 'd': { 'pattern': '\-' }
-\ }
 
 " Custom functions
 function LatexQuotes()
@@ -110,12 +93,13 @@ function QuickCC()
 	endif
 endfunction
 
-" probably ought to tidy this up
-" YAML indentation fix
+" extra filetype settings
+" is YAML indentation tweaking still needed on newer versions of vim?
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>
-" typescript
 autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 ft=javascriptreact
-" set 'prose' files to wrap
-autocmd FileType markdown setlocal wrap
+autocmd FileType markdown setlocal wrap spell
 autocmd FileType text setlocal wrap
+" gentoo-specific text setting
+let g:leave_my_textwidth_alone = "yes"
 autocmd FileType java setlocal expandtab foldmethod=indent
+autocmd FileType json setlocal foldmethod=indent shiftwidth=2
