@@ -17,3 +17,6 @@
 	mc = log --branches --author=wilbol*
 	s = status
 	d = diff
+	dw = diff --color-words
+	dc = diff --cached
+	dcw = diff --cached --color-words
