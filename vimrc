@@ -2,23 +2,12 @@
 " as well as custom entries as required
 " URL: http://vim.wikia.com/wiki/Example_vimrc
 " URL: https://github.com/tpope/vim-sensible/blob/master/plugin/sensible.vim
-"
-" Disable vi compatibility for more features?
+
+" settings
 set nocompatible
-
-" Enable filetype detection and loading indentation and plugins
 filetype indent plugin on
-
-" Enable syntax highlighting
 syntax enable
-
-" Use tpope's pathogen plugin manager
-" execute pathogen#infect()
-
-" Set default encoding
 set encoding=utf-8
-
-" Set misc behavioural options
 set statusline=%n\ %f\ %m%=%l/%L
 set laststatus=2
 set hidden
@@ -40,42 +29,42 @@ set diffopt=filler,vertical
 set cursorline
 set splitright
 set sidescroll=1
+set wildignorecase
 
 " Leader key
 let mapleader = "\<Space>"
 
 " Key mappings
-nnoremap <BS> :noh<CR>
-nnoremap <Leader>y "*y
-nnoremap <Leader>Y "*Y
-nnoremap <Leader>p "*p
-nnoremap <Leader>P "*P
-nnoremap <Leader>n :bn<CR>
-nnoremap <Leader>N :bp<CR>
+nnoremap <BS> :nohlsearch<CR>
+noremap <Leader>y "*y
+noremap <Leader>Y "*Y
+noremap <Leader>p "*p
+noremap <Leader>P "*P
+nnoremap <Leader>n :bnext<CR>
+nnoremap <Leader>N :bprevious<CR>
 nnoremap <Leader>U "_yiwgUl
 nnoremap <Leader>u "_yiwgul
 nnoremap <Leader>h :help<Space>
-nnoremap <Leader>g :g/^/
-nnoremap <Leader>x :bn<CR>:bd#<CR>
+nnoremap <Leader>g :global/^/
+nnoremap <Leader>x :bnext<CR>:bdelete#<CR>
 nnoremap Y y$
-nnoremap <Leader>c :s///gn<Left><Left><Left><Left>
-nnoremap <Leader>C :%s///gn<Left><Left><Left><Left>
+nnoremap <Leader>c :substitute///gn<Left><Left><Left><Left>
+nnoremap <Leader>C :%substitute///gn<Left><Left><Left><Left>
 nnoremap :: :<Up><CR>
-nnoremap <Leader>v :e<Space>~/.vimrc<CR>
+nnoremap <Leader>v :edit<Space>~/.vimrc<CR>
 nnoremap <Leader>l :ls<CR>
-nnoremap <Leader>d :windo :difft<CR>
+nnoremap <Leader>d :windo :diffthis<CR>
 nnoremap <Leader>D :windo :diffoff<CR>
 nnoremap <Leader>q :call QuickCC()<CR>
+nnoremap <Leader>j :%!jq .<CR>
+nnoremap <Leader>J :%!jq --sort-keys .<CR>
+nnoremap <Left> :cprevious<CR>
+nnoremap <Right> :cnext<CR>
+nnoremap <Up> :1cc<CR>
+nnoremap <Down> :cwindow<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
 "nnoremap <expr> N 'nN'[v:searchforward] . "zv"
-
-" easy-align plugin
-xmap <Leader>a <Plug>(EasyAlign)
-nmap <Leader>a <Plug>(EasyAlign)
-let g:easy_align_delimiters = {
-\ 'd': { 'pattern': '\-' }
-\ }
 
 " Custom functions
 function LatexQuotes()
@@ -109,11 +98,10 @@ function QuickCC()
 	endif
 endfunction
 
-" probably ought to tidy this up
-" YAML indentation fix
-"autocmd FileType yaml setlocal ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>
-" typescript
-"autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 ft=javascriptreact
-" set 'prose' files to wrap
-autocmd FileType markdown setlocal wrap
+" extra filetype settings
+" is YAML indentation tweaking still needed on newer versions of vim?
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>
+autocmd FileType markdown setlocal wrap spell
 autocmd FileType text setlocal wrap
+autocmd FileType java setlocal expandtab foldmethod=indent
+autocmd FileType json setlocal foldmethod=indent shiftwidth=2
