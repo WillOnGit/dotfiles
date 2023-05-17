@@ -35,28 +35,33 @@ set wildignorecase
 let mapleader = "\<Space>"
 
 " Key mappings
-nnoremap <BS> :noh<CR>
+nnoremap <BS> :nohlsearch<CR>
 noremap <Leader>y "+y
 noremap <Leader>Y "+Y
 noremap <Leader>p "+p
 noremap <Leader>P "+P
-nnoremap <Leader>n :bn<CR>
-nnoremap <Leader>N :bp<CR>
+nnoremap <Leader>n :bnext<CR>
+nnoremap <Leader>N :bprevious<CR>
 nnoremap <Leader>U "_yiwgUl
 nnoremap <Leader>u "_yiwgul
 nnoremap <Leader>h :help<Space>
-nnoremap <Leader>g :g/^/
-nnoremap <Leader>x :bn<CR>:bd#<CR>
+nnoremap <Leader>g :global/^/
+nnoremap <Leader>x :bnext<CR>:bdelete#<CR>
 nnoremap Y y$
-nnoremap <Leader>c :s///gn<Left><Left><Left><Left>
-nnoremap <Leader>C :%s///gn<Left><Left><Left><Left>
+nnoremap <Leader>c :substitute///gn<Left><Left><Left><Left>
+nnoremap <Leader>C :%substitute///gn<Left><Left><Left><Left>
 nnoremap :: :<Up><CR>
-nnoremap <Leader>v :e<Space>~/.vimrc<CR>
+nnoremap <Leader>v :edit<Space>~/.vimrc<CR>
 nnoremap <Leader>l :ls<CR>
-nnoremap <Leader>d :windo :difft<CR>
+nnoremap <Leader>d :windo :diffthis<CR>
 nnoremap <Leader>D :windo :diffoff<CR>
 nnoremap <Leader>q :call QuickCC()<CR>
 nnoremap <Leader>j :%!jq .<CR>
+nnoremap <Leader>J :%!jq --sort-keys .<CR>
+nnoremap <Left> :cprevious<CR>
+nnoremap <Right> :cnext<CR>
+nnoremap <Up> :1cc<CR>
+nnoremap <Down> :cwindow<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
 "nnoremap <expr> N 'nN'[v:searchforward] . "zv"
