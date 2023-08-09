@@ -27,3 +27,5 @@
 	sort = -creatordate
 [commit]
 	gpgSign = true
+[log]
+	showSignature = true
