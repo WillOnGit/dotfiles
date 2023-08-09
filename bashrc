@@ -7,7 +7,7 @@ export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 # setup aliases
 alias py='python'
 alias kc='kubectl'
-alias grep='grep --binary-files=without-match'
+alias grep='grep --color=auto --binary-files=without-match'
 alias yf='xclip -r -selection Clipboard'
 
 # autocompletion

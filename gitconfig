@@ -5,6 +5,7 @@
 	editor = vim
 	excludesFile = ~/.git-excludesFile
 	pager = less -F
+	hooksPath = ~/.githooks
 [pull]
 	ff = true
 [push]
@@ -22,3 +23,7 @@
 	dc = diff --cached
 	dcw = diff --cached --color-words
 	dcww = diff --cached --color-words=.
+[tag]
+	sort = -creatordate
+[commit]
+	gpgSign = true

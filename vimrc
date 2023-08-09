@@ -28,6 +28,7 @@ set shiftwidth=4
 set diffopt=filler,vertical
 set cursorline
 set splitright
+set splitbelow
 set sidescroll=1
 set wildignorecase
 
@@ -58,13 +59,18 @@ nnoremap <Leader>D :windo :diffoff<CR>
 nnoremap <Leader>q :call QuickCC()<CR>
 nnoremap <Leader>j :%!jq .<CR>
 nnoremap <Leader>J :%!jq --sort-keys .<CR>
+nnoremap <Leader>6 !!tr -d '\n' \| base64 -w 0<CR>
+nnoremap <Leader>^ !!base64 -d<CR>
+nnoremap <Leader>f :setlocal modifiable!<CR>
 nnoremap <Left> :cprevious<CR>
 nnoremap <Right> :cnext<CR>
 nnoremap <Up> :1cc<CR>
 nnoremap <Down> :cwindow<CR>
+nnoremap <Tab> :b#<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
 "nnoremap <expr> N 'nN'[v:searchforward] . "zv"
+nnoremap \ :qa<CR>
 
 " Custom functions
 function LatexQuotes()
@@ -73,7 +79,7 @@ endfunction
 " only accounts for pairs of ''double'' quotes not 'single' quotes
 
 function StripTrailingWhitespace()
-	%s/\s\+$//
+	%s/\s\+$//e
 endfunction
 
 function ClearBlankLines()
@@ -81,11 +87,11 @@ function ClearBlankLines()
 endfunction
 
 function ClearInitialWhitespace()
-              %s/^\s*//
+              %s/^\s*//e
 endfunction
 
 function CollapseSpaces()
-              %s/ \+/ /g
+              %s/ \+/ /ge
 endfunction
 
 function QuickCC()
@@ -100,11 +106,10 @@ endfunction
 
 " extra filetype settings
 " is YAML indentation tweaking still needed on newer versions of vim?
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>
-autocmd FileType typescriptreact setlocal ts=2 sts=2 sw=2 ft=javascriptreact
+autocmd FileType java setlocal expandtab foldmethod=indent foldlevel=1
+autocmd FileType json setlocal foldmethod=indent shiftwidth=2
 autocmd FileType markdown setlocal wrap spell
 autocmd FileType text setlocal wrap
 " gentoo-specific text setting
 let g:leave_my_textwidth_alone = "yes"
-autocmd FileType java setlocal expandtab foldmethod=indent
-autocmd FileType json setlocal foldmethod=indent shiftwidth=2
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>
