@@ -13,7 +13,7 @@
 [init]
 	defaultBranch = main
 [alias]
-	fl = log --oneline --graph --branches
+	fl = log --oneline --graph --branches --no-show-signature
 	cv = commit --verbose
 	mc = log --branches --author=wilbol*
 	s = status

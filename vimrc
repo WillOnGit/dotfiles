@@ -38,7 +38,7 @@ let mapleader = "\<Space>"
 " Key mappings
 nnoremap <BS> :nohlsearch<CR>
 noremap <Leader>y "+y
-noremap <Leader>Y "+Y
+nnoremap <Leader>Y "+y$
 noremap <Leader>p "+p
 noremap <Leader>P "+P
 nnoremap <Leader>n :bnext<CR>
@@ -67,10 +67,11 @@ nnoremap <Right> :cnext<CR>
 nnoremap <Up> :1cc<CR>
 nnoremap <Down> :cwindow<CR>
 nnoremap <Tab> :b#<CR>
+nnoremap <Leader>m :make<CR>
+"nnoremap \ :qa<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
 "nnoremap <expr> N 'nN'[v:searchforward] . "zv"
-nnoremap \ :qa<CR>
 
 " Custom functions
 function LatexQuotes()
@@ -112,4 +113,4 @@ autocmd FileType markdown setlocal wrap spell
 autocmd FileType text setlocal wrap
 " gentoo-specific text setting
 let g:leave_my_textwidth_alone = "yes"
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>
+autocmd FileType yaml setlocal foldmethod=indent ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>
