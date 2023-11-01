@@ -30,6 +30,7 @@ set cursorline
 set splitright
 set sidescroll=1
 set wildignorecase
+set modelines=1
 
 " Leader key
 let mapleader = "\<Space>"
