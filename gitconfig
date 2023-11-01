@@ -5,6 +5,7 @@
 	editor = vim
 	excludesFile = ~/.git-excludesFile
 	pager = less -F
+	hooksPath = ~/.githooks
 [pull]
 	ff = true
 [push]
@@ -12,7 +13,7 @@
 [init]
 	defaultBranch = main
 [alias]
-	fl = log --oneline --graph --branches
+	fl = log --oneline --graph --branches --no-show-signature
 	cv = commit --verbose
 	mc = log --branches --author=wilbol*
 	s = status
@@ -22,3 +23,7 @@
 	dc = diff --cached
 	dcw = diff --cached --color-words
 	dcww = diff --cached --color-words=.
+[tag]
+	sort = -creatordate
+[log]
+	showSignature = true
