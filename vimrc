@@ -108,6 +108,7 @@ endfunction
 " extra filetype settings
 " is YAML indentation tweaking still needed on newer versions of vim?
 autocmd FileType java setlocal expandtab foldmethod=indent foldlevel=1
+autocmd FileType javascript setlocal expandtab foldmethod=indent foldlevel=1 shiftwidth=2
 autocmd FileType json setlocal foldmethod=indent shiftwidth=2
 autocmd FileType markdown setlocal wrap spell
 autocmd FileType text setlocal wrap

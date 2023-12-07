@@ -13,16 +13,18 @@
 [init]
 	defaultBranch = main
 [alias]
-	fl = log --oneline --graph --branches --no-show-signature
+	c = clean -x -d -n
 	cv = commit --verbose
-	mc = log --branches --author=wilbol*
-	s = status
 	d = diff
 	dw = diff --color-words
 	dww = diff --color-words=.
 	dc = diff --cached
 	dcw = diff --cached --color-words
 	dcww = diff --cached --color-words=.
+	fl = log --oneline --graph --branches --no-show-signature
+	mc = log --branches --author=wilbol*
+	s = status
+	t = for-each-ref refs/tags
 [tag]
 	sort = -creatordate
 [commit]
