@@ -1,6 +1,6 @@
 [user]
 	name = Will Bolton
-	email = git@bolton.me.uk
+	email = will.bolton@exadev.io
 [core]
 	editor = vim
 	excludesFile = ~/.git-excludesFile
