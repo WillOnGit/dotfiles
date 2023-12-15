@@ -39,7 +39,7 @@ let mapleader = "\<Space>"
 " Key mappings
 nnoremap <BS> :nohlsearch<CR>
 noremap <Leader>y "*y
-noremap <Leader>Y "*Y
+nnoremap <Leader>Y "*y$
 noremap <Leader>p "*p
 noremap <Leader>P "*P
 nnoremap <Leader>n :bnext<CR>
