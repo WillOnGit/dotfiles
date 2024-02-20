@@ -31,6 +31,11 @@ set splitright
 set splitbelow
 set sidescroll=1
 set wildignorecase
+" see: https://jameschambers.co.uk/vim-typescript-slow
+set regexpengine=0
+
+" vim 9.1 onwards package editorconfig support
+packadd! editorconfig
 
 " Leader key
 let mapleader = "\<Space>"
@@ -93,6 +98,9 @@ endfunction
 
 function CollapseSpaces()
               %s/ \+/ /ge
+endfunction
+function CollapseLines()
+              %s/\n\{3,}/\r\r/ge
 endfunction
 
 function QuickCC()

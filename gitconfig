@@ -23,6 +23,7 @@
 	dcww = diff --cached --color-words=.
 	fl = log --oneline --graph --branches --no-show-signature
 	mc = log --branches --author=will.bolton@exadev.io
+	mcs = log --branches --author=will.bolton@exadev.io --no-show-signature --oneline
 	s = status
 	t = for-each-ref refs/tags
 [tag]
