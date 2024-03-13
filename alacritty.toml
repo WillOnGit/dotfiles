@@ -1,0 +1,22 @@
+# clone https://github.com/alacritty/alacritty-theme
+#     into ~/.config/alacritty/themes
+#
+# some settings designed for macOS
+
+import = [
+	"~/.config/alacritty/themes/themes/nord.toml"
+]
+
+[font]
+size = 16
+
+[window]
+option_as_alt = "Both"
+
+[keyboard]
+bindings = [
+	{ key = "Left",  mods = "Alt",   chars = "\u001Bb" },
+	{ key = "Left",  mods = "Shift", chars = "\u001Bb" },
+	{ key = "Right", mods = "Alt",   chars = "\u001Bf" },
+	{ key = "Right", mods = "Shift", chars = "\u001Bf" },
+]
