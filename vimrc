@@ -36,6 +36,7 @@ set regexpengine=0
 
 " vim 9.1 onwards package editorconfig support
 packadd! editorconfig
+packadd! matchit
 
 " Leader key
 let mapleader = "\<Space>"
@@ -73,6 +74,7 @@ nnoremap <Up> :1cc<CR>
 nnoremap <Down> :cwindow<CR>
 nnoremap <Tab> :b#<CR>
 nnoremap <Leader>m :make<CR>
+nnoremap <Leader>w :set wrap!<CR>
 "nnoremap \ :qa<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
@@ -113,11 +115,18 @@ function QuickCC()
 	endif
 endfunction
 
+function CleanTerraformLogs()
+			  %s:::ge
+			  %s:::ge
+			  %s:::ge
+			  %s:\[\d\+m::ge
+endfunction
+
 " extra filetype settings
 " is YAML indentation tweaking still needed on newer versions of vim?
 autocmd FileType java setlocal expandtab foldmethod=indent foldlevel=1
 autocmd FileType javascript setlocal expandtab foldmethod=indent foldlevel=1 shiftwidth=2
-autocmd FileType json setlocal foldmethod=indent shiftwidth=2
+autocmd FileType json setlocal foldmethod=indent foldlevel=1
 autocmd FileType markdown setlocal wrap spell
 autocmd FileType text setlocal wrap
 " gentoo-specific text setting
