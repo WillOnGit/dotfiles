@@ -20,3 +20,6 @@ bindings = [
 	{ key = "Right", mods = "Alt",   chars = "\u001Bf" },
 	{ key = "Right", mods = "Shift", chars = "\u001Bf" },
 ]
+
+[hints]
+enabled = []
