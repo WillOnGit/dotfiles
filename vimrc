@@ -32,6 +32,12 @@ set splitbelow
 set sidescroll=1
 set wildignorecase
 set modelines=1
+" see: https://jameschambers.co.uk/vim-typescript-slow
+set regexpengine=0
+
+" vim 9.1 onwards package editorconfig support
+" packadd! editorconfig
+" packadd! matchit
 
 " Leader key
 let mapleader = "\<Space>"
@@ -69,6 +75,8 @@ nnoremap <Up> :1cc<CR>
 nnoremap <Down> :cwindow<CR>
 nnoremap <Tab> :b#<CR>
 nnoremap <Leader>m :make<CR>
+nnoremap <Leader>w :set wrap!<CR>
+nnoremap <Leader>s :tab split<CR>
 "nnoremap \ :qa<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
@@ -95,6 +103,9 @@ endfunction
 function CollapseSpaces()
               %s/ \+/ /ge
 endfunction
+function CollapseLines()
+              %s/\n\{3,}/\r\r/ge
+endfunction
 
 function QuickCC()
 	let now_cc = &cc
@@ -106,11 +117,18 @@ function QuickCC()
 	endif
 endfunction
 
+function CleanTerraformLogs()
+			  %s:::ge
+			  %s:::ge
+			  %s:::ge
+			  %s:\[\d\+m::ge
+endfunction
+
 " extra filetype settings
 " is YAML indentation tweaking still needed on newer versions of vim?
 autocmd FileType java setlocal expandtab foldmethod=indent foldlevel=1
 autocmd FileType javascript setlocal expandtab foldmethod=indent foldlevel=1 shiftwidth=2
-autocmd FileType json setlocal foldmethod=indent shiftwidth=2
+autocmd FileType json setlocal foldmethod=indent foldlevel=1
 autocmd FileType markdown setlocal wrap spell
 autocmd FileType text setlocal wrap
 autocmd FileType yaml setlocal foldmethod=indent ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>

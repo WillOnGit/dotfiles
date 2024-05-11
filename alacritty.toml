@@ -1,0 +1,27 @@
+# clone https://github.com/alacritty/alacritty-theme
+#     into ~/.config/alacritty/themes
+#
+# some settings designed for macOS
+
+import = [
+	"~/.config/alacritty/themes/themes/nord.toml"
+]
+
+[font]
+size = 16
+#normal = { family = "Menlo", style = "Regular" }
+
+[window]
+option_as_alt = "Both"
+
+[keyboard]
+bindings = [
+	{ key = "Left",  mods = "Alt",   chars = "\u001Bb" },
+	{ key = "Right", mods = "Alt",   chars = "\u001Bf" },
+]
+
+[hints]
+enabled = []
+
+[scrolling]
+multiplier = 0

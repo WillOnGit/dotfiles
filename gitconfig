@@ -14,6 +14,7 @@
 	defaultBranch = main
 [alias]
 	c = clean -x -d -n
+	cc = clean -x -d -i
 	cv = commit --verbose
 	d = diff
 	dw = diff --color-words
@@ -22,7 +23,8 @@
 	dcw = diff --cached --color-words
 	dcww = diff --cached --color-words=.
 	fl = log --oneline --graph --branches --no-show-signature
-	mc = log --branches --author=wilbol*
+	mc = log --branches --author=git@bolton.me.uk
+	mcs = log --branches --author=git@bolton.me.uk --no-show-signature --oneline
 	s = status
 	t = for-each-ref refs/tags
 [tag]
