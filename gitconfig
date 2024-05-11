@@ -14,6 +14,7 @@
 	defaultBranch = main
 [alias]
 	c = clean -x -d -n
+	cc = clean -x -d -i
 	cv = commit --verbose
 	d = diff
 	dw = diff --color-words

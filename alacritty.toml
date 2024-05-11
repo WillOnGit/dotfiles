@@ -9,6 +9,7 @@ import = [
 
 [font]
 size = 16
+#normal = { family = "Menlo", style = "Regular" }
 
 [window]
 option_as_alt = "Both"
@@ -16,10 +17,11 @@ option_as_alt = "Both"
 [keyboard]
 bindings = [
 	{ key = "Left",  mods = "Alt",   chars = "\u001Bb" },
-	{ key = "Left",  mods = "Shift", chars = "\u001Bb" },
 	{ key = "Right", mods = "Alt",   chars = "\u001Bf" },
-	{ key = "Right", mods = "Shift", chars = "\u001Bf" },
 ]
 
 [hints]
 enabled = []
+
+[scrolling]
+multiplier = 0

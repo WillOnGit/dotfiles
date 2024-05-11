@@ -75,6 +75,7 @@ nnoremap <Down> :cwindow<CR>
 nnoremap <Tab> :b#<CR>
 nnoremap <Leader>m :make<CR>
 nnoremap <Leader>w :set wrap!<CR>
+nnoremap <Leader>s :tab split<CR>
 "nnoremap \ :qa<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
@@ -129,6 +130,4 @@ autocmd FileType javascript setlocal expandtab foldmethod=indent foldlevel=1 shi
 autocmd FileType json setlocal foldmethod=indent foldlevel=1
 autocmd FileType markdown setlocal wrap spell
 autocmd FileType text setlocal wrap
-" gentoo-specific text setting
-let g:leave_my_textwidth_alone = "yes"
 autocmd FileType yaml setlocal foldmethod=indent ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>
