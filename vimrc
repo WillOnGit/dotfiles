@@ -76,6 +76,7 @@ nnoremap <Tab> :b#<CR>
 nnoremap <Leader>m :make<CR>
 nnoremap <Leader>w :set wrap!<CR>
 nnoremap <Leader>s :tab split<CR>
+nnoremap K <Nop>
 "nnoremap \ :qa<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
