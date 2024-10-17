@@ -34,9 +34,16 @@ set wildignorecase
 " see: https://jameschambers.co.uk/vim-typescript-slow
 set regexpengine=0
 
+if &term == "alacritty"
+	" set termguicolors
+	set background=dark
+endif
+
 " vim 9.1 onwards package editorconfig support
 packadd! editorconfig
+"let g:EditorConfig_max_line_indicator = "none"
 packadd! matchit
+packadd! comment
 
 " Leader key
 let mapleader = "\<Space>"
@@ -81,6 +88,12 @@ nnoremap K <Nop>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
 "nnoremap <expr> N 'nN'[v:searchforward] . "zv"
+
+" EasyAlign
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap <Leader>a <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap <Leader>a <Plug>(EasyAlign)
 
 " Custom functions
 function LatexQuotes()
@@ -127,8 +140,9 @@ endfunction
 " extra filetype settings
 " is YAML indentation tweaking still needed on newer versions of vim?
 autocmd FileType java setlocal expandtab foldmethod=indent foldlevel=1
-autocmd FileType javascript setlocal expandtab foldmethod=indent foldlevel=1 shiftwidth=2
+autocmd FileType javascript setlocal foldmethod=indent foldlevel=1
 autocmd FileType json setlocal foldmethod=indent foldlevel=1
+autocmd FileType xml setlocal foldmethod=indent foldlevel=1
 autocmd FileType markdown setlocal wrap spell
 autocmd FileType text setlocal wrap
 autocmd FileType yaml setlocal foldmethod=indent ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>

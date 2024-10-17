@@ -26,6 +26,8 @@
 	mc = log --branches --author=will.bolton@exadev.io
 	mcs = log --branches --author=will.bolton@exadev.io --no-show-signature --oneline
 	s = status
+	showw = show --color-words
+	showww = show --color-words=.
 	t = for-each-ref refs/tags
 [tag]
 	sort = -creatordate

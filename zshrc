@@ -17,7 +17,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 SHELL_SESSIONS_DISABLE=1
 
 # add ~/bin and python to PATH
-export PATH="/opt/homebrew/opt/postgresql@13/bin:/Users/will.bolton/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
+export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:/opt/homebrew/opt/postgresql@13/bin:/Users/will.bolton/bin:/Users/will.bolton/.local/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
 
 # PS1 customisation and vcs_info setup
 # man zshall: vcs_info, EXPANSION OF PROMPT SEQUENCES, CHARACTER HIGHLIGHTING
@@ -30,6 +30,7 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 precmd () { vcs_info }
 setopt PROMPT_SUBST
 PS1='%F{3}%3~ ${vcs_info_msg_0_}%f%# '
+zstyle ':completion:*:*:git:*' script /opt/homebrew/Cellar/git/2.46.1/share/zsh/site-functions/git-completion.bash
 
 # some useful shell options
 setopt autocd
@@ -38,9 +39,14 @@ setopt autocd
 #setopt globdots
 
 # aliases
+alias ef='find . -type d -name node_modules -prune -o'
 alias grep='grep --color=auto --binary-files=without-match --exclude-dir .git --exclude-dir node_modules --exclude-dir .terragrunt-cache'
+alias kc='kubectl'
+alias pip='pip3'
 alias py='python3'
+alias sshh='LC_ALL=C TERM=xterm-256color ssh'
 alias t='tmux'
 alias ta='tmux attach'
 alias tf='terraform'
 alias tg='terragrunt'
+alias treeg='tree --gitignore'
