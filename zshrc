@@ -30,7 +30,10 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 precmd () { vcs_info }
 setopt PROMPT_SUBST
 PS1='%F{3}%3~ ${vcs_info_msg_0_}%f%# '
-zstyle ':completion:*:*:git:*' script /opt/homebrew/Cellar/git/2.46.1/share/zsh/site-functions/git-completion.bash
+#PS1='%F{3}%3d ${vcs_info_msg_0_}%f%# '
+# ORIGINAL# zstyle ':completion:*:*:git:*' script /opt/homebrew/Cellar/git/2.47.0/share/zsh/site-functions/git-completion.bash
+brew_git_version=$(ls -1 /opt/homebrew/Cellar/git | sort -n | tail -n 1)
+zstyle ':completion:*:*:git:*' script /opt/homebrew/Cellar/git/$brew_git_version/share/zsh/site-functions/git-completion.bash
 
 # some useful shell options
 setopt autocd
@@ -50,3 +53,4 @@ alias ta='tmux attach'
 alias tf='terraform'
 alias tg='terragrunt'
 alias treeg='tree --gitignore'
+alias pnode='NODE_REPL_HISTORY=/dev/null node'

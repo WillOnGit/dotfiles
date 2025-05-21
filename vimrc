@@ -61,6 +61,7 @@ nnoremap <Leader>u "_yiwgul
 nnoremap <Leader>h :help<Space>
 nnoremap <Leader>g :global/^/
 nnoremap <Leader>x :bnext<CR>:bdelete#<CR>
+nnoremap <Leader>X :bnext<CR>:bdelete!#<CR>
 nnoremap Y y$
 nnoremap <Leader>c :substitute///gn<Left><Left><Left><Left>
 nnoremap <Leader>C :%substitute///gn<Left><Left><Left><Left>
@@ -84,6 +85,7 @@ nnoremap <Leader>m :make<CR>
 nnoremap <Leader>w :set wrap!<CR>
 nnoremap <Leader>s :tab split<CR>
 nnoremap K <Nop>
+nnoremap <Leader>/ q/p:s:/:\\/:ge<CR><CR>
 "nnoremap \ :qa<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
@@ -141,7 +143,7 @@ endfunction
 " is YAML indentation tweaking still needed on newer versions of vim?
 autocmd FileType java setlocal expandtab foldmethod=indent foldlevel=1
 autocmd FileType javascript setlocal foldmethod=indent foldlevel=1
-autocmd FileType json setlocal foldmethod=indent foldlevel=1
+autocmd FileType json setlocal sw=2 foldmethod=indent foldlevel=1
 autocmd FileType xml setlocal foldmethod=indent foldlevel=1
 autocmd FileType markdown setlocal wrap spell
 autocmd FileType text setlocal wrap
