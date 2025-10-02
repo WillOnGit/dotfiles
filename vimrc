@@ -33,6 +33,7 @@ set sidescroll=1
 set wildignorecase
 " see: https://jameschambers.co.uk/vim-typescript-slow
 set regexpengine=0
+set complete-=i " autocomplete suddenly started chugging one day in python codebase? Thought it was tags but seems not...
 
 if &term == "alacritty"
 	" set termguicolors

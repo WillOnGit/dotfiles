@@ -13,7 +13,7 @@
 [init]
 	defaultBranch = main
 [alias]
-	ae = log --no-show-signature --format=%ae
+	ae = log --no-show-signature --branches --format=%ae
 	c = clean -x -d -n
 	cc = clean -x -d -i
 	cv = commit --verbose
@@ -37,4 +37,6 @@
 [commit]
 	gpgSign = true
 [log]
-	showSignature = true
+	showSignature = false
+[fetch]
+	prune = true
