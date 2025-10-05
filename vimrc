@@ -23,8 +23,6 @@ set visualbell
 set backspace=indent,eol,start
 set nowrap
 set mouse=
-set tabstop=4
-set shiftwidth=4
 set diffopt=filler,vertical
 set cursorline
 set splitright
@@ -34,6 +32,7 @@ set wildignorecase
 set modelines=1
 " see: https://jameschambers.co.uk/vim-typescript-slow
 set regexpengine=0
+set background=dark
 
 " vim 9.1 onwards package editorconfig support
 " packadd! editorconfig
@@ -77,6 +76,8 @@ nnoremap <Tab> :b#<CR>
 nnoremap <Leader>m :make<CR>
 nnoremap <Leader>w :set wrap!<CR>
 nnoremap <Leader>s :tab split<CR>
+vnoremap <Leader>c :call ToCMultilineString()<CR>
+vnoremap <Leader>C :call FromCMultilineString()<CR>
 "nnoremap \ :qa<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
@@ -122,6 +123,16 @@ function CleanTerraformLogs()
 			  %s:::ge
 			  %s:::ge
 			  %s:\[\d\+m::ge
+endfunction
+
+function ToCMultilineString()
+			  silent s:^:	":e
+			  silent s:$:\\n":e
+endfunction
+
+function FromCMultilineString()
+			  silent s:^	"::e
+			  silent s:\\n".*$::e
 endfunction
 
 " extra filetype settings

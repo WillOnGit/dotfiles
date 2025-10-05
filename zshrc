@@ -13,6 +13,7 @@ if [ -f '/Users/will.bolton/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '
 #export EDITOR=vim
 export GPG_TTY="$(tty)"
 export XDG_CONFIG_HOME="$HOME/.config"
+export LESS="-i"
 # macOS specific
 SHELL_SESSIONS_DISABLE=1
 
