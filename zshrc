@@ -18,7 +18,7 @@ export LESS="-i"
 SHELL_SESSIONS_DISABLE=1
 
 # add ~/bin and python to PATH
-export PATH="/opt/homebrew/opt/postgresql@13/bin:/Users/will.bolton/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
+export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:/opt/homebrew/opt/postgresql@13/bin:/Users/will.bolton/bin:/Users/will.bolton/.local/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
 
 # PS1 customisation and vcs_info setup
 # man zshall: vcs_info, EXPANSION OF PROMPT SEQUENCES, CHARACTER HIGHLIGHTING
@@ -28,20 +28,39 @@ zstyle ':vcs_info:*' actionformats \
 zstyle ':vcs_info:*' formats       \
 		   '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+zstyle ':vcs_info:*' enable git # don't bother using anything other than git
 precmd () { vcs_info }
 setopt PROMPT_SUBST
+
 PS1='%F{3}%3~ ${vcs_info_msg_0_}%f%# '
+#PS1='%F{3}%3d ${vcs_info_msg_0_}%f%# '
+# ORIGINAL# zstyle ':completion:*:*:git:*' script /opt/homebrew/Cellar/git/2.47.0/share/zsh/site-functions/git-completion.bash
+brew_git_version=$(ls -1 /opt/homebrew/Cellar/git | sort -n | tail -n 1)
+zstyle ':completion:*:*:git:*' script /opt/homebrew/Cellar/git/$brew_git_version/share/zsh/site-functions/git-completion.bash
 
 # some useful shell options
 setopt autocd
+setopt extendedglob
 #setopt cdablevars
-#setopt extendedglob
 #setopt globdots
 
 # aliases
-alias grep='grep --color=auto --binary-files=without-match --exclude-dir .git --exclude-dir node_modules --exclude-dir .terragrunt-cache'
+alias ef='find . -type d -name node_modules -prune -o'
+alias grep='grep --color=auto --binary-files=without-match --exclude-dir .git --exclude-dir node_modules --exclude-dir .terragrunt-cache --directories=skip'
+alias kc='kubectl'
+alias pip='pip3'
+alias pnode='NODE_REPL_HISTORY=/dev/null node'
+alias ppy='PYTHON_HISTORY=/dev/null python3'
 alias py='python3'
+alias sed='sed -EH'
+alias sshh='LC_ALL=C TERM=xterm-256color ssh'
 alias t='tmux'
 alias ta='tmux attach'
 alias tf='terraform'
 alias tg='terragrunt'
+alias treeg='tree --gitignore'
+alias v='vim'
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /Users/will.bolton/.asdf/installs/terraform/1.8.2/bin/terraform terraform
+complete -C '/usr/local/bin/aws_completer' aws # AWS CLI autocompletion - https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html

@@ -33,10 +33,18 @@ set modelines=1
 " see: https://jameschambers.co.uk/vim-typescript-slow
 set regexpengine=0
 set background=dark
+set complete-=i " autocomplete suddenly started chugging one day in python codebase? Thought it was tags but seems not...
+
+if &term == "alacritty"
+	" set termguicolors
+	set background=dark
+endif
 
 " vim 9.1 onwards package editorconfig support
-" packadd! editorconfig
-" packadd! matchit
+packadd! editorconfig
+"let g:EditorConfig_max_line_indicator = "none"
+packadd! matchit
+packadd! comment
 
 " Leader key
 let mapleader = "\<Space>"
@@ -54,6 +62,7 @@ nnoremap <Leader>u "_yiwgul
 nnoremap <Leader>h :help<Space>
 nnoremap <Leader>g :global/^/
 nnoremap <Leader>x :bnext<CR>:bdelete#<CR>
+nnoremap <Leader>X :bnext<CR>:bdelete!#<CR>
 nnoremap Y y$
 nnoremap <Leader>c :substitute///gn<Left><Left><Left><Left>
 nnoremap <Leader>C :%substitute///gn<Left><Left><Left><Left>
@@ -78,10 +87,18 @@ nnoremap <Leader>w :set wrap!<CR>
 nnoremap <Leader>s :tab split<CR>
 vnoremap <Leader>c :call ToCMultilineString()<CR>
 vnoremap <Leader>C :call FromCMultilineString()<CR>
+nnoremap K <Nop>
+nnoremap <Leader>/ q/p:s:/:\\/:ge<CR><CR>
 "nnoremap \ :qa<CR>
 " Force n and N to search forwards and backwards
 "nnoremap <expr> n 'Nn'[v:searchforward] . "zv"
 "nnoremap <expr> N 'nN'[v:searchforward] . "zv"
+
+" EasyAlign
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap <Leader>a <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap <Leader>a <Plug>(EasyAlign)
 
 " Custom functions
 function LatexQuotes()
@@ -138,8 +155,9 @@ endfunction
 " extra filetype settings
 " is YAML indentation tweaking still needed on newer versions of vim?
 autocmd FileType java setlocal expandtab foldmethod=indent foldlevel=1
-autocmd FileType javascript setlocal expandtab foldmethod=indent foldlevel=1 shiftwidth=2
-autocmd FileType json setlocal foldmethod=indent foldlevel=1
+autocmd FileType javascript setlocal foldmethod=indent foldlevel=1
+autocmd FileType json setlocal sw=2 foldmethod=indent foldlevel=1
+autocmd FileType xml setlocal foldmethod=indent foldlevel=1
 autocmd FileType markdown setlocal wrap spell
 autocmd FileType text setlocal wrap
 autocmd FileType yaml setlocal foldmethod=indent ts=2 sts=2 sw=2 indentkeys-=0# indentkeys-=<:>
