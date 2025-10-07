@@ -1,8 +1,8 @@
 # homebrew - https://brew.sh/
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # asdf - https://asdf-vm.com/
-. "$HOME/.asdf/asdf.sh"
+# . "$HOME/.asdf/asdf.sh"
 
 # Google Cloud SDK path and completion
 if [ -f '/Users/will.bolton/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/will.bolton/bin/google-cloud-sdk/path.zsh.inc'; fi
@@ -34,8 +34,8 @@ setopt PROMPT_SUBST
 PS1='%F{3}%3~ ${vcs_info_msg_0_}%f%# '
 #PS1='%F{3}%3d ${vcs_info_msg_0_}%f%# '
 # ORIGINAL# zstyle ':completion:*:*:git:*' script /opt/homebrew/Cellar/git/2.47.0/share/zsh/site-functions/git-completion.bash
-brew_git_version=$(ls -1 /opt/homebrew/Cellar/git | sort -n | tail -n 1)
-zstyle ':completion:*:*:git:*' script /opt/homebrew/Cellar/git/$brew_git_version/share/zsh/site-functions/git-completion.bash
+# brew_git_version=$(ls -1 /opt/homebrew/Cellar/git | sort -n | tail -n 1)
+# zstyle ':completion:*:*:git:*' script /opt/homebrew/Cellar/git/$brew_git_version/share/zsh/site-functions/git-completion.bash
 
 # some useful shell options
 setopt autocd
@@ -61,5 +61,5 @@ alias treeg='tree --gitignore'
 alias v='vim'
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /Users/will.bolton/.asdf/installs/terraform/1.8.2/bin/terraform terraform
-complete -C '/usr/local/bin/aws_completer' aws # AWS CLI autocompletion - https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
+# complete -o nospace -C /Users/will.bolton/.asdf/installs/terraform/1.8.2/bin/terraform terraform
+# complete -C '/usr/local/bin/aws_completer' aws # AWS CLI autocompletion - https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
