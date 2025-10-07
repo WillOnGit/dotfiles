@@ -14,8 +14,6 @@ if [ -f '/Users/will.bolton/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '
 export GPG_TTY="$(tty)"
 export XDG_CONFIG_HOME="$HOME/.config"
 export LESS="-i"
-# macOS specific
-SHELL_SESSIONS_DISABLE=1
 
 # add ~/bin and python to PATH
 export PATH="$HOME/bin:$HOME/.cargo/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/opt/local/bin:/opt/local/sbin:$PATH"
