@@ -60,6 +60,7 @@ alias tg='terragrunt'
 alias treeg='tree --gitignore'
 alias v='vim'
 
+autoload -U compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /Users/will.bolton/.asdf/installs/terraform/1.8.2/bin/terraform terraform
 # complete -C '/usr/local/bin/aws_completer' aws # AWS CLI autocompletion - https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
