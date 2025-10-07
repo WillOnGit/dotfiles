@@ -18,7 +18,8 @@ export LESS="-i"
 SHELL_SESSIONS_DISABLE=1
 
 # add ~/bin and python to PATH
-export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:/opt/homebrew/opt/postgresql@13/bin:/Users/will.bolton/bin:/Users/will.bolton/.local/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
+export PATH="$HOME/bin:$HOME/.cargo/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/opt/local/bin:/opt/local/sbin:$PATH"
+export DISPLAY=:0 # macports
 
 # PS1 customisation and vcs_info setup
 # man zshall: vcs_info, EXPANSION OF PROMPT SEQUENCES, CHARACTER HIGHLIGHTING
