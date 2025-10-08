@@ -23,16 +23,16 @@ set visualbell
 set backspace=indent,eol,start
 set nowrap
 set mouse=
-set tabstop=4
-set shiftwidth=4
 set diffopt=filler,vertical
 set cursorline
 set splitright
 set splitbelow
 set sidescroll=1
 set wildignorecase
+set modelines=1
 " see: https://jameschambers.co.uk/vim-typescript-slow
 set regexpengine=0
+set background=dark
 set complete-=i " autocomplete suddenly started chugging one day in python codebase? Thought it was tags but seems not...
 
 if &term == "alacritty"
@@ -51,10 +51,10 @@ let mapleader = "\<Space>"
 
 " Key mappings
 nnoremap <BS> :nohlsearch<CR>
-noremap <Leader>y "+y
-nnoremap <Leader>Y "+y$
-noremap <Leader>p "+p
-noremap <Leader>P "+P
+noremap <Leader>y "*y
+nnoremap <Leader>Y "*y$
+noremap <Leader>p "*p
+noremap <Leader>P "*P
 nnoremap <Leader>n :bnext<CR>
 nnoremap <Leader>N :bprevious<CR>
 nnoremap <Leader>U "_yiwgUl
@@ -85,6 +85,8 @@ nnoremap <Tab> :b#<CR>
 nnoremap <Leader>m :make<CR>
 nnoremap <Leader>w :set wrap!<CR>
 nnoremap <Leader>s :tab split<CR>
+vnoremap <Leader>c :call ToCMultilineString()<CR>
+vnoremap <Leader>C :call FromCMultilineString()<CR>
 nnoremap K <Nop>
 nnoremap <Leader>/ q/p:s:/:\\/:ge<CR><CR>
 "nnoremap \ :qa<CR>
@@ -138,6 +140,16 @@ function CleanTerraformLogs()
 			  %s:::ge
 			  %s:::ge
 			  %s:\[\d\+m::ge
+endfunction
+
+function ToCMultilineString()
+			  silent s:^:	":e
+			  silent s:$:\\n":e
+endfunction
+
+function FromCMultilineString()
+			  silent s:^	"::e
+			  silent s:\\n".*$::e
 endfunction
 
 " extra filetype settings

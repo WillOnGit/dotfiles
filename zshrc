@@ -13,8 +13,7 @@ if [ -f '/Users/will.bolton/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '
 #export EDITOR=vim
 export GPG_TTY="$(tty)"
 export XDG_CONFIG_HOME="$HOME/.config"
-# macOS specific
-SHELL_SESSIONS_DISABLE=1
+export LESS="-i"
 
 # add ~/bin and python to PATH
 export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:/opt/homebrew/opt/postgresql@13/bin:/Users/will.bolton/bin:/Users/will.bolton/.local/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
@@ -60,6 +59,7 @@ alias tg='terragrunt'
 alias treeg='tree --gitignore'
 alias v='vim'
 
+autoload -U compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /Users/will.bolton/.asdf/installs/terraform/1.8.2/bin/terraform terraform
 complete -C '/usr/local/bin/aws_completer' aws # AWS CLI autocompletion - https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
