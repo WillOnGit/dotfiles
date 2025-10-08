@@ -13,7 +13,7 @@ if [ -f '/Users/will.bolton/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '
 #export EDITOR=vim
 export GPG_TTY="$(tty)"
 export XDG_CONFIG_HOME="$HOME/.config"
-export LESS="-i"
+export LESS="-iR"
 
 # add ~/bin and python to PATH
 export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:/opt/homebrew/opt/postgresql@13/bin:/Users/will.bolton/bin:/Users/will.bolton/.local/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
