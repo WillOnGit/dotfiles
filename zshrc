@@ -1,13 +1,3 @@
-# homebrew - https://brew.sh/
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# asdf - https://asdf-vm.com/
-. "$HOME/.asdf/asdf.sh"
-
-# Google Cloud SDK path and completion
-if [ -f '/Users/will.bolton/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/will.bolton/bin/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/Users/will.bolton/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/will.bolton/bin/google-cloud-sdk/completion.zsh.inc'; fi
-
 # environment variables
 # unbelievably EDITOR=vim breaks zsh bindkey mappings on macOS... not worth figuring out how to unbreak them.
 #export EDITOR=vim
@@ -16,7 +6,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export LESS="-iR"
 
 # add ~/bin and python to PATH
-export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:/opt/homebrew/opt/postgresql@13/bin:/Users/will.bolton/bin:/Users/will.bolton/.local/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
+export PATH="$HOME/bin:$HOME/.cargo/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/opt/local/bin:/opt/local/sbin:$PATH"
+export DISPLAY=:0 # macports
 
 # PS1 customisation and vcs_info setup
 # man zshall: vcs_info, EXPANSION OF PROMPT SEQUENCES, CHARACTER HIGHLIGHTING
@@ -33,8 +24,8 @@ setopt PROMPT_SUBST
 PS1='%F{3}%3~ ${vcs_info_msg_0_}%f%# '
 #PS1='%F{3}%3d ${vcs_info_msg_0_}%f%# '
 # ORIGINAL# zstyle ':completion:*:*:git:*' script /opt/homebrew/Cellar/git/2.47.0/share/zsh/site-functions/git-completion.bash
-brew_git_version=$(ls -1 /opt/homebrew/Cellar/git | sort -n | tail -n 1)
-zstyle ':completion:*:*:git:*' script /opt/homebrew/Cellar/git/$brew_git_version/share/zsh/site-functions/git-completion.bash
+# brew_git_version=$(ls -1 /opt/homebrew/Cellar/git | sort -n | tail -n 1)
+# zstyle ':completion:*:*:git:*' script /opt/homebrew/Cellar/git/$brew_git_version/share/zsh/site-functions/git-completion.bash
 
 # some useful shell options
 setopt autocd
@@ -61,5 +52,5 @@ alias v='vim'
 
 autoload -U compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /Users/will.bolton/.asdf/installs/terraform/1.8.2/bin/terraform terraform
-complete -C '/usr/local/bin/aws_completer' aws # AWS CLI autocompletion - https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
+# complete -o nospace -C /Users/will.bolton/.asdf/installs/terraform/1.8.2/bin/terraform terraform
+# complete -C '/usr/local/bin/aws_completer' aws # AWS CLI autocompletion - https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
