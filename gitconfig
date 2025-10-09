@@ -40,7 +40,6 @@
 	showSignature = false
 [fetch]
 	prune = true
-	pruneTags = true
 [branch]
 	sort = -committerdate
 [column]
