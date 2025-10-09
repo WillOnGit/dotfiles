@@ -13,6 +13,7 @@
 [init]
 	defaultBranch = main
 [alias]
+	ae = log --no-show-signature --branches --format=%ae
 	c = clean -x -d -n
 	cc = clean -x -d -i
 	cv = commit --verbose
@@ -25,9 +26,30 @@
 	fl = log --oneline --graph --branches --no-show-signature
 	mc = log --branches --author=git@bolton.me.uk
 	mcs = log --branches --author=git@bolton.me.uk --no-show-signature --oneline
+	n = rev-parse HEAD
+	ol = log --oneline --no-show-signature
 	s = status
+	showw = show --color-words
+	showww = show --color-words=.
 	t = for-each-ref refs/tags
 [tag]
 	sort = -creatordate
+[commit]
+	gpgSign = false
 [log]
-	showSignature = true
+	showSignature = false
+[fetch]
+	prune = true
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[help]
+	autocorrect = prompt
+[rerere]
+	enabled = true

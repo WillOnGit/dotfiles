@@ -3,6 +3,7 @@
 #
 # some settings designed for macOS
 
+[general]
 import = [
 	"~/.config/alacritty/themes/themes/nord.toml"
 ]
@@ -16,8 +17,10 @@ option_as_alt = "Both"
 
 [keyboard]
 bindings = [
-	{ key = "Left",  mods = "Alt",   chars = "\u001Bb" },
-	{ key = "Right", mods = "Alt",   chars = "\u001Bf" },
+	{ key = "Left",  mods = "Alt",  chars = "\u001Bb" },
+	{ key = "Right", mods = "Alt",  chars = "\u001Bf" },
+	{ key = "Home",  mods = "None", chars = "`" },
+	{ key = "End",   mods = "None", chars = "~" },
 ]
 
 [hints]
