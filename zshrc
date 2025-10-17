@@ -63,3 +63,21 @@ autoload -U compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /Users/will.bolton/.asdf/installs/terraform/1.8.2/bin/terraform terraform
 complete -C '/usr/local/bin/aws_completer' aws # AWS CLI autocompletion - https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
+
+gitroot () {
+	local ORIGINAL_DIR="$(pwd)"
+	local RESULT="$(while [ "$(pwd)" != "/" ]; do
+		TEST_DIR="$(pwd)"
+		if [ -d "$TEST_DIR"/.git ]; then
+			echo "$TEST_DIR";
+			break
+		fi
+		cd ..
+	done)"
+
+	if [ -z "$RESULT" ]; then
+		echo "Fatal: $ORIGINAL_DIR is not inside a git repository";
+	else
+		cd "$RESULT"
+	fi
+}
